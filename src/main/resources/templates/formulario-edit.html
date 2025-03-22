@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Edição de formulário</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<main>
+		<form th:object="${task}" th:action="@{/formulario/edit/{id}(id=${task.id})}" method="post">
+			<input type="hidden" name="_method" value="put"/>
+			<div class="bloco">
+				<label for="inputTitle">Título da tarefa</label>
+				<input type="text" placeholder="Insira o nome da sua tarefa" name="title" th:field="*{title}" required>
+			</div>
+			<div class="bloco">
+				<label for="inputDescription">Descrição da tarefa</label>
+				<input type="text" placeholder="Insira a descrição da tarefa..." name="description" th:field="*{description}" required>
+			</div>
+			<div class="bloco">
+				<label for="dueDate">Data de vencimento da tarefa</label>
+				<input type="date" name="dueDate" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}">
+			</div>
+
+			<button type="submit" class="btn-submit">Atualizar</button>
+		</form>
+	</main>
+</body>
+</html>

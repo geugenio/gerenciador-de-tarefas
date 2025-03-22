@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boa noite</title>
+    <link rel="stylesheet" th:href="@{/css/tasks.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<main>
+		<h1>Lista de tarefas</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Data de vencimento</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="task: ${tasks}">
+                    <td th:text="${task.id}" ></td>
+                    <td th:text="${task.title}">...</td>
+                    <td th:text="${task.description}">...</td>
+                    <td th:text="${#temporals.format(task.dueDate, 'dd/MM/yyyy')}">...</td>
+                    <td th:text="${task.status.getDescricao()}" class="descricao"></td>
+                    <td class="btn-td">
+                        <a th:href="@{/formulario/edit/{id}(id = ${task.id})}">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </td>
+                    <td class="btn-td">
+                        <a th:href="@{/formulario/delete/{id}(id = ${task.id})}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="botoes">
+            <button class="btn-criar-tarefa" onclick="window.location.href='/formulario'">
+                Criar nova tarefa
+            </button>
+            <a th:href="@{/formulario/deleteall}">
+                <button type="button">
+                    Apagar todas as tarefas
+                </button>
+            </a>
+        </div>
+
+	</main>
+</body>
+</html>

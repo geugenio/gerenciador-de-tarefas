@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body{
+    padding: 20px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+h1{
+    color:rgb(35, 146, 44);
+}
+
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td,th{
+    border : 1px solid #0000003a;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: rgb(202, 226, 202);
+}
+thead{
+    color: white;
+    background-color:rgb(35, 146, 44);
+}
+
+.botoes{
+    display: flex;
+    gap:20%;
+    justify-content: space-between;
+}
+
+.botoes button{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.botoes button:hover{
+    background-color: rgba(32, 153, 59, 0.13);
+    cursor: pointer;
+}
+
+
+.btn-td{
+    background-color: white;
+    border: none;
+    margin-left: 20px;
+}
+.btn-td a{
+    color: rgb(230, 0, 0);
+    background-color: white;
+    border:none;
+    font-size: 1em;
+}
+.btn-td a:hover{
+    color: rgb(255, 106, 106);
+}
