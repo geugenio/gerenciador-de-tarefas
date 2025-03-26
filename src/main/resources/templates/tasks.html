@@ -27,7 +27,29 @@
                     <td th:text="${task.title}">...</td>
                     <td th:text="${task.description}">...</td>
                     <td th:text="${#temporals.format(task.dueDate, 'dd/MM/yyyy')}">...</td>
-                    <td th:text="${task.status.getDescricao()}" class="descricao"></td>
+                    <td class="status">
+                        <span th:text="${task.status.getDescricao()}" th:class="status"></span>
+                        <div id="listagem">
+                            <i class="fa-solid fa-caret-down" onclick="toggleLista(this)"></i>
+                            <ul class="lista-status">
+                                <li class="select-andamento">
+                                    <a th:href="@{/formulario/edit/status/andamento/{id}(id=${task.id})}">
+                                        Em andamento
+                                    </a>
+                                </li>
+                                <li class="select-concluido">
+                                    <a th:href="@{/formulario/edit/status/concluido/{id}(id=${task.id})}">
+                                        Concluído
+                                    </a>
+                                </li>
+                                <li class="select-desistiu">
+                                    <a th:href="@{/formulario/edit/status/desistiu/{id}(id=${task.id})}">
+                                        Desistiu
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
                     <td class="btn-td">
                         <a th:href="@{/formulario/edit/{id}(id = ${task.id})}">
                             <i class="fa-solid fa-pen"></i>
@@ -54,5 +76,6 @@
         </div>
 
 	</main>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 </html>

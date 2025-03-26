@@ -80,6 +80,36 @@ public class TaskController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/formulario/edit/status/concluido/{id}")
+	public String updateStatusToConcluido(@PathVariable Long id, @ModelAttribute Task task) {
+		Task taskExist = taskService.findById(id).orElse(null);
+		if (taskExist != null) {
+			taskExist.setStatus(TaskStatus.CONCLUIDO);
+			taskService.save(taskExist);
+		}
+		return "redirect:/";
+	}
+
+	@GetMapping("/formulario/edit/status/andamento/{id}")
+	public String updateStatusToAndamento(@PathVariable Long id, @ModelAttribute Task task) {
+		Task taskExist = taskService.findById(id).orElse(null);
+		if (taskExist != null) {
+			taskExist.setStatus(TaskStatus.EM_ANDAMENTO);
+			taskService.save(taskExist);
+		}
+		return "redirect:/";
+	}
+
+	@GetMapping("/formulario/edit/status/desistiu/{id}")
+	public String updateStatusToDesistiu(@PathVariable Long id, @ModelAttribute Task task) {
+		Task taskExist = taskService.findById(id).orElse(null);
+		if (taskExist != null) {
+			taskExist.setStatus(TaskStatus.DESISTIU);
+			taskService.save(taskExist);
+		}
+		return "redirect:/";
+	}
+
 	@GetMapping("/formulario/deleteall")
 	public String deleteAll() {
 		taskService.deleteAll();
