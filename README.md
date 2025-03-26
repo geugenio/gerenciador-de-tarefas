@@ -1,6 +1,6 @@
 # Gerenciador de Tarefas
 
-Este é um projeto CRUD simples para gerenciamento de tarefas. Permite criar, visualizar, editar e excluir tarefas, utilizando Java Spring Boot, JDBC e Thymeleaf para a renderização de um frontend básico.
+Este é um projeto CRUD para gerenciamento de tarefas. Permite criar, visualizar, editar e excluir tarefas, utilizando Java Spring Boot, JDBC + MySQL e Thymeleaf para a renderização de um frontend básico.
 
 ## 🛠️ Funcionalidades do projeto
 - Criar uma nova tarefa, possuindo título, descrição, data de vencimento da tarefa e status
