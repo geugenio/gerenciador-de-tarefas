@@ -27,42 +27,43 @@ table {
     width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    font-weight: 500;
+
 }
 
 td,th{
-    border : 1px solid #0000003a;
-    padding: 8px;
+    padding: 12px 15px;
+    
 }
 
 tr:nth-child(even){
     background-color: rgb(202, 226, 202);
 }
+
 thead{
     color: white;
     background-color:rgb(35, 146, 44);
+    text-align: left;
+}
+tbody tr td{
+    border-bottom: 1px solid #dddddd;
 }
 
-.botoes{
-    display: flex;
-    gap:20%;
-    justify-content: space-between;
+tbody tr td:nth-child(6){
+    border-bottom: none;
 }
 
-.botoes button{
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-.botoes button:hover{
-    background-color: rgba(32, 153, 59, 0.13);
-    cursor: pointer;
+tbody tr:nth-of-type(even){
+    background-color: rgb(202, 226, 202);
 }
 
 
 .btn-td{
     background-color: white;
-    border: none;
-    margin-left: 20px;
+    text-align: center;
+    padding: 0px;
+    border:none;
+    font-size: 1.2em;
 }
 .btn-td a{
     color: rgb(230, 0, 0);
@@ -72,4 +73,45 @@ thead{
 }
 .btn-td a:hover{
     color: rgb(255, 106, 106);
+}
+
+
+
+
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4em;
+    margin-top: 20px;
+}
+.botoes button {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    margin: 0 auto;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.botoes button:hover {
+    background-color: rgb(70, 210, 70);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.botoes button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.botoes button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(93, 233, 93, 0.3);
 }

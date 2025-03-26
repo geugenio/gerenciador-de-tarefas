@@ -4,25 +4,41 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Edição de formulário</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/formulario.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
+	<header>
+		<h1>
+			Edição da tarefa
+		</h1>
+	</header>
 	<main>
 		<form th:object="${task}" th:action="@{/formulario/edit/{id}(id=${task.id})}" method="post">
 			<input type="hidden" name="_method" value="put"/>
 			<div class="bloco">
 				<label for="inputTitle">Título da tarefa</label>
-				<input type="text" placeholder="Insira o nome da sua tarefa" name="title" th:field="*{title}" required>
+				<div class="input">
+					<input type="text" placeholder="Insira o nome da sua tarefa" name="title" th:field="*{title}" required>
+					<i class="fas fa-heading"></i>
 			</div>
 			<div class="bloco">
 				<label for="inputDescription">Descrição da tarefa</label>
-				<input type="text" placeholder="Insira a descrição da tarefa..." name="description" th:field="*{description}" required>
+				<div class="input">
+					<input type="text" placeholder="Insira a descrição da tarefa..." name="description" th:field="*{description}" required>
+					<i class="fas fa-align-left"></i>
+				</div>
+
 			</div>
 			<div class="bloco">
 				<label for="dueDate">Data de vencimento da tarefa</label>
-				<input type="date" name="dueDate" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}">
+				<div class="input">
+					<input type="date" name="dueDate" th:value="${#temporals.format(task.dueDate, 'yyyy-MM-dd')}">
+					<i class="fas fa-calendar-alt"></i>
+				</div>
+				
 			</div>
-
 			<button type="submit" class="btn-submit">Atualizar</button>
 		</form>
 	</main>
